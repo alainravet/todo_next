@@ -4,8 +4,8 @@ require File.expand_path('../lib/goal-tdd/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Alain Ravet"]
   gem.email         = ["alainravet@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{small DSL to convert free text into pending tests/specs}
+  gem.summary       = %q{small DSL to convert free text into pending tests/specs}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "goal-tdd"
   gem.require_paths = ["lib"]
   gem.version       = Goal::Tdd::VERSION
+
+  gem.add_development_dependency  'rspec'
 end
