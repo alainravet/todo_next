@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "goal-tdd"
   gem.require_paths = ["lib"]
   gem.version       = Goal::Tdd::VERSION
+
+  gem.add_development_dependency  'rspec'
 end
