@@ -14,7 +14,53 @@ And then execute:
 
 ## Usage
 
+Create a first spec with a goal-tdd skeleton:
 
+```shell
+$ cd <project-spec>
+$ goal-tdd your_spec.rb
+    # => spec/your_spec.rb was created.
+$ cat spec/your_spec.rb
+    # =>
+```
+```ruby
+    require 'goal-tdd/rspec'
+
+    goal do
+        Describing your project goals in plain English is easy.
+        It's an easy way to collect your ideas before starting coding.
+        The text below will turn into 4 pending specs in 2 describe blocks.
+        # does not start in column 0 => ignored (comments)
+
+    Your code   #starts in column 0 => converted (specs)
+      - does this
+      - does that
+      Optionally it could
+        - do this
+        - do that
+          example:
+              this is just a comment block (starts with 'example:')
+              foo bar
+              buz
+
+    end
+```
+This text is equivalent to :
+
+```ruby
+    require 'goal-tdd/rspec'
+
+    describe 'Project goals:' do
+      describe 'Your code' do
+        it 'does this'
+        it 'does that'
+        describe 'Optionally it could' do
+          it 'do this'
+          it 'do that'
+        end
+      end
+    end
+```
 
 ## Contributing
 
