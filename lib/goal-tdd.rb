@@ -1,7 +1,5 @@
 require "goal-tdd/version"
 
-module Goal
-  module Tdd
-    # Your code goes here...
-  end
+module GoalTDD
+  # Your code goes here...
 end

@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "goal-tdd"
   gem.require_paths = ["lib"]
-  gem.version       = Goal::Tdd::VERSION
+  gem.version       = GoalTDD::VERSION
 
   gem.add_development_dependency  'rspec'
 end
