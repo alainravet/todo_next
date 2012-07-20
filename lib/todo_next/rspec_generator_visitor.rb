@@ -1,3 +1,5 @@
+require File.dirname(__FILE__) + '/tree/depth_first_visitor_base'
+
 module TodoNext
 
   class RspecGeneratorVisitor < TodoNext::Tree::DepthFirstVisitorBase
