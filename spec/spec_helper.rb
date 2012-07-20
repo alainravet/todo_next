@@ -15,3 +15,38 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
 end
+
+require File.dirname(__FILE__) + '/../lib/goal-tdd/parser.rb'
+
+class GoalTDD::Tree
+  def to_hash
+    {
+        :children => children.collect{|ch| ch.to_hash }
+    }
+  end
+
+  class OL
+
+    def to_hash
+      {   :type => :ol,
+          :text => text,
+          :children => children.collect{|ch| ch.to_hash }
+      }
+    end
+  end
+  class LI
+    def to_hash
+      {   :type => :li,
+          :text => text
+      }
+    end
+  end
+end
+
+def parsed_result(source)
+  GoalTDD::Parser.parse(source).to_hash[:children]
+end
+
+def result_should_be(expected)
+  parsed_result(@source).should == expected
+end
