@@ -15,5 +15,6 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = GoalTDD::VERSION
 
+  gem.add_development_dependency  'rake'  # to run 'All specs in Rubymine'
   gem.add_development_dependency  'rspec'
 end
