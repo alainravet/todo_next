@@ -55,6 +55,9 @@ This text is equivalent to :
     end
 ```
 
+![screenshot1](https://github.com/alainravet/todo_next/raw/master/doc/screenshot_1.png)
+![screenshot1](https://github.com/alainravet/todo_next/raw/master/doc/screenshot_2.png)
+
 ## Contributing
 
 1. Fork it
