@@ -17,48 +17,41 @@ And then execute:
 Create a first spec with a todo_next skeleton:
 
 ```shell
-$ cd <project-spec>
-$ todo_next your_spec.rb
-    # => spec/your_spec.rb was created.
-$ cat spec/your_spec.rb
+$ cd <project>
+$ todo_next stack
+    # => <project>/spec/stack_spec.rb was created.
+$ cat spec/stack_spec.rb
     # =>
 ```
 ```ruby
-    require 'todo_next/rspec'
+    require 'rubygems'
+    require 'rspec'
+    require 'todo_next'
 
-    goal do
-        Describing your project goals in plain English is easy.
-        It's an easy way to collect your ideas before starting coding.
-        The text below will turn into 4 pending specs in 2 describe blocks.
-        # does not start in column 0 => ignored (comments)
+    todo_next(<<TEXT)
+    A Foobar
+      - is white by default
+      - can be resized
+      truthiness()
+        - is always true
+      (add more tests)
+    TEXT
 
-    Your code   #starts in column 0 => converted (specs)
-      - does this
-      - does that
-      Optionally it could
-        - do this
-        - do that
-          example:
-              this is just a comment block (starts with 'example:')
-              foo bar
-              buz
 
-    end
+    #describe "<what you're testing>" do
+    #  specify 'this should happen' do
+    #    .. some code
+    #  end
 ```
 This text is equivalent to :
 
 ```ruby
-    require 'todo_next/rspec'
-
-    describe 'Project goals:' do
-      describe 'Your code' do
-        it 'does this'
-        it 'does that'
-        describe 'Optionally it could' do
-          it 'do this'
-          it 'do that'
-        end
+    describe "A Foobar" do
+      it "- is white by default"
+      describe "- can be resized" do
+        it "- is always true"
       end
+      it "(add more tests)"
     end
 ```
 
