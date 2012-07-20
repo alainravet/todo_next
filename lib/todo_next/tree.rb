@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/tree/factory'
 
-module GoalTDD
+module TodoNext
 
   class Tree
     attr_accessor :children

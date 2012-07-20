@@ -6,7 +6,7 @@ A small DSL that converts free text into pending tests/specs.
 
 Add this line to your application's Gemfile:
 
-    gem 'goal-tdd'
+    gem 'todo_next'
 
 And then execute:
 
@@ -14,17 +14,17 @@ And then execute:
 
 ## Usage
 
-Create a first spec with a goal-tdd skeleton:
+Create a first spec with a todo_next skeleton:
 
 ```shell
 $ cd <project-spec>
-$ goal-tdd your_spec.rb
+$ todo_next your_spec.rb
     # => spec/your_spec.rb was created.
 $ cat spec/your_spec.rb
     # =>
 ```
 ```ruby
-    require 'goal-tdd/rspec'
+    require 'todo_next/rspec'
 
     goal do
         Describing your project goals in plain English is easy.
@@ -48,7 +48,7 @@ $ cat spec/your_spec.rb
 This text is equivalent to :
 
 ```ruby
-    require 'goal-tdd/rspec'
+    require 'todo_next/rspec'
 
     describe 'Project goals:' do
       describe 'Your code' do

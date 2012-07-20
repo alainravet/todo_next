@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/tree'
 require File.dirname(__FILE__) + '/line'
 
-module GoalTDD
+module TodoNext
 
   class Parser
     def self.parse(text)

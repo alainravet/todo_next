@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe GoalTDD::Parser, 'parsing indented text and producing a Tree' do
+describe TodoNext::Parser, 'parsing indented text and producing a Tree' do
 
   it 'ignores comments and blank lines' do
     @source = '# a comment'     + "\n" +

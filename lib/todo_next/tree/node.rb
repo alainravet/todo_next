@@ -1,4 +1,4 @@
-module GoalTDD
+module TodoNext
 
   class Tree
     class Node

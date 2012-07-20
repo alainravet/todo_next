@@ -1,4 +1,4 @@
-module GoalTDD
+module TodoNext
 
   class Line
     attr_accessor :text, :col_offset, :leaf

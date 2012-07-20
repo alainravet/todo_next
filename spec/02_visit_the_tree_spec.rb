@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 
-describe GoalTDD::Tree, 'visiting the tree depth-first' do
+describe TodoNext::Tree, 'visiting the tree depth-first' do
 
 
-  class SimpleVisitor < GoalTDD::Tree::DepthFirstVisitorBase
+  class SimpleVisitor < TodoNext::Tree::DepthFirstVisitorBase
     def process_terminal_node(curr_node, level)
       curr_node.text
     end
@@ -33,7 +33,7 @@ describe GoalTDD::Tree, 'visiting the tree depth-first' do
               'HEADER 5'            + "\n" +
               'HEADER 6'
 
-    GoalTDD::Parser.
+    TodoNext::Parser.
         parse(source).
         visit(SimpleVisitor.new).
         should == expected

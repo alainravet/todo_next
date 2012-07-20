@@ -16,9 +16,9 @@ RSpec.configure do |config|
   config.order = 'random'
 end
 
-require File.dirname(__FILE__) + '/../lib/goal-tdd.rb'
+require File.dirname(__FILE__) + '/../lib/todo_next.rb'
 
-class GoalTDD::Tree
+class TodoNext::Tree
   def to_hash
     {
         :children => children.collect{|ch| ch.to_hash }
@@ -44,7 +44,7 @@ class GoalTDD::Tree
 end
 
 def parsed_result(source)
-  GoalTDD::Parser.parse(source).to_hash[:children]
+  TodoNext::Parser.parse(source).to_hash[:children]
 end
 
 def result_should_be(expected)

@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/node'
 require File.dirname(__FILE__) + '/parents_list'
 
-module GoalTDD
+module TodoNext
 
   class Tree
     class Factory
