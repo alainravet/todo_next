@@ -9,6 +9,11 @@ module GoalTDD
       @children = []
     end
 
+    def visit(visitor)
+      children.collect do |node|
+        visitor.visit(node, level=1)
+      end
+    end
   end
 
 end

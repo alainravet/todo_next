@@ -7,10 +7,19 @@ module GoalTDD
         @text, @parent = text, parent
         @children = []
       end
+
+      def terminal?
+        false
+      end
     end
 
     class OL < Node ; end
-    class LI < Node ; end
+
+    class LI < Node
+      def terminal?
+        true
+      end
+    end
   end
 
 end

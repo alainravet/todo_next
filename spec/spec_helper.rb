@@ -16,7 +16,7 @@ RSpec.configure do |config|
   config.order = 'random'
 end
 
-require File.dirname(__FILE__) + '/../lib/goal-tdd/parser.rb'
+require File.dirname(__FILE__) + '/../lib/goal-tdd.rb'
 
 class GoalTDD::Tree
   def to_hash
