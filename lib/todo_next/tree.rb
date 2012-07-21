@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/tree/factory'
-require File.dirname(__FILE__) + '/tree/example_remover_visitor'
-require File.dirname(__FILE__) + '/tree/leaf_maker_visitor'
+require File.dirname(__FILE__) + '/tree/visitor/example_remover_visitor'
+require File.dirname(__FILE__) + '/tree/visitor/rspec_generator'
+require File.dirname(__FILE__) + '/tree/visitor/leaf_maker'
 
 module TodoNext
 
@@ -20,13 +21,13 @@ module TodoNext
     end
 
     def prune_examples
-      visit(ExampleRemoverVisitor.new)
-      visit(LeafMakerVisitor     .new)
+      visit(TodoNext::Tree::Visitor::ExampleNodesRemover.new)
+      visit(TodoNext::Tree::Visitor::LeafMaker     .new)
       self
     end
 
     def to_rspec
-      visit(TodoNext::RspecGeneratorVisitor.new).flatten.join("\n")
+      visit(TodoNext::Tree::Visitor::RspecGenerator.new).flatten.join("\n")
     end
   end
 end

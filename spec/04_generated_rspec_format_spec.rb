@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe TodoNext::RspecGeneratorVisitor, 'fine-tuning' do
+describe TodoNext::Tree::Visitor::RspecGenerator, 'fine-tuning' do
 
   it 'visits the tree depth-first' do
     source =  'HEADER 1'                    + "\n" +

@@ -1,6 +1,5 @@
 require File.dirname(__FILE__) + '/tree'
 require File.dirname(__FILE__) + '/line'
-require File.dirname(__FILE__) + '/rspec_generator_visitor'
 require File.dirname(__FILE__) + '/cli'
 
 module TodoNext

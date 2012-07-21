@@ -3,8 +3,7 @@ require 'spec_helper'
 
 describe TodoNext::Tree, 'visiting the tree depth-first' do
 
-
-  class SimpleVisitor < TodoNext::Tree::DepthFirstVisitorBase
+  class SimpleVisitor < TodoNext::Tree::Visitor::Base
     def process_terminal_node(curr_node, level, parent)
       curr_node.text
     end
