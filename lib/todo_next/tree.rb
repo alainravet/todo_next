@@ -4,8 +4,8 @@ require File.dirname(__FILE__) + '/tree/visitor/rspec_generator'
 require File.dirname(__FILE__) + '/tree/visitor/leaf_maker'
 
 module TodoNext
-
   class Tree
+
     attr_accessor :children
 
     def initialize
@@ -20,14 +20,15 @@ module TodoNext
       result
     end
 
-    def prune_examples
+    def prune_example_nodes!
       visit(TodoNext::Tree::Visitor::ExampleNodesRemover.new)
-      visit(TodoNext::Tree::Visitor::LeafMaker     .new)
+      visit(TodoNext::Tree::Visitor::LeafMaker          .new)
       self
     end
 
     def to_rspec
       visit(TodoNext::Tree::Visitor::RspecGenerator.new).flatten.join("\n")
     end
+
   end
 end

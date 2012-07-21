@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe TodoNext::Tree do
 
-  describe '#prune_examples' do
+  describe '#prune_example_nodes!' do
 
     specify 'an top-level example line with a sibling is removed' do
       source = 'spec 1'                 + "\n" +
@@ -14,7 +14,7 @@ describe TodoNext::Tree do
                    {:type  => :ex, :text  => 'example : ignore me', :children => []},
                    {:type  => :li, :text  => 'spec 2'             }
                 ]
-      tree.prune_examples.to_hash[:children].should ==
+      tree.prune_example_nodes!.to_hash[:children].should ==
                 [  {:type  => :li, :text  => 'spec 1', },
                    {:type  => :li, :text  => 'spec 2'}
                 ]
@@ -30,7 +30,7 @@ describe TodoNext::Tree do
                 '  spec b'
 
       tree = TodoNext::Parser.parse(source)
-      tree.prune_examples.to_hash[:children].should ==
+      tree.prune_example_nodes!.to_hash[:children].should ==
                 [  {:type     => :ol , :text  => "HEADER 1",
                     :children => [{:type => :li, :text => "spec b"}]
                    }
@@ -43,7 +43,7 @@ describe TodoNext::Tree do
                 '    blabla'
 
       tree = TodoNext::Parser.parse(source)
-      tree.prune_examples.to_hash[:children].should ==
+      tree.prune_example_nodes!.to_hash[:children].should ==
                 [  {:type     => :li , :text  => "spec 1"}
                 ]
     end

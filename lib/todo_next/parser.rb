@@ -3,8 +3,8 @@ require File.dirname(__FILE__) + '/line'
 require File.dirname(__FILE__) + '/cli'
 
 module TodoNext
-
   class Parser
+
     def self.parse(text)
       lines = extract_meaningful_lines(text)
       tree  = Tree::Factory.build(lines)
@@ -21,6 +21,6 @@ module TodoNext
            reject{|l| l.comment?}.
            reject{|l| l.passed?}
     end
-  end
 
+  end
 end

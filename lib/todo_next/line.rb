@@ -1,6 +1,6 @@
 module TodoNext
-
   class Line
+
     attr_accessor :text, :col_offset, :leaf
 
     def initialize(text, col_offset)
@@ -26,6 +26,6 @@ module TodoNext
 
     def leaf?   ; leaf   end
     def branch? ; !leaf? end
-  end
 
+  end
 end

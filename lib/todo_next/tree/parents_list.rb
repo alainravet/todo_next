@@ -1,5 +1,4 @@
 module TodoNext
-
   class Tree
     class ParentsList
 
@@ -17,7 +16,7 @@ module TodoNext
         parent_key = @parents.keys.sort.reverse.detect {|col| col <= curr_col}
         @parents[parent_key]
       end
+
     end
   end
-
 end

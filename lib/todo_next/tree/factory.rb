@@ -1,8 +1,8 @@
 require File.dirname(__FILE__) + '/node'
+require File.dirname(__FILE__) + '/nodes'
 require File.dirname(__FILE__) + '/parents_list'
 
 module TodoNext
-
   class Tree
     class Factory
 
@@ -41,5 +41,4 @@ module TodoNext
 
     end
   end
-
 end

@@ -1,6 +1,7 @@
 module TodoNext
   class Tree
     class Node
+
       attr_accessor :text, :parent, :children
       def initialize(text, parent=nil)
         @text, @parent = text, parent
@@ -25,21 +26,7 @@ module TodoNext
         idx =  parent.children.find_index(self)
         parent.children[idx] = me_as_leaf
       end
+
     end
   end
-end
-
-class TodoNext::Tree
-
-  class OL < Node ; end
-
-  class LI < Node
-    def terminal? ; true  end
-  end
-
-  class EX < Node
-    def example? ; true   end
-    def terminal?; children.empty?  end
-  end
-
 end
