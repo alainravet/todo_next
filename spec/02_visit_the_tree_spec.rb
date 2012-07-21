@@ -3,14 +3,13 @@ require 'spec_helper'
 
 describe TodoNext::Tree, 'visiting the tree depth-first' do
 
-
-  class SimpleVisitor < TodoNext::Tree::DepthFirstVisitorBase
-    def process_terminal_node(curr_node, level)
+  class SimpleVisitor < TodoNext::Tree::Visitor::Base
+    def process_terminal_node(curr_node, level, parent)
       curr_node.text
     end
 
-    def process_non_terminal_node(curr_node, level)
-      result = curr_node.children.collect { |node| visit(node, 1+level) }.join(', ')
+    def process_non_terminal_node(curr_node, level, parent)
+      result = curr_node.children.collect { |node| visit(node, 1+level, self) }.join(', ')
       "#{curr_node.text}=[#{result}]"
     end
   end

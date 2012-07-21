@@ -1,5 +1,4 @@
 module TodoNext
-
   class Tree
     class ParentsList
 
@@ -14,10 +13,10 @@ module TodoNext
       end
 
       def get_for_item_at_column(curr_col)
-        parent_key = @parents.keys.sort.reverse.detect {|col| col < curr_col}
+        parent_key = @parents.keys.sort.reverse.detect {|col| col <= curr_col}
         @parents[parent_key]
       end
+
     end
   end
-
 end

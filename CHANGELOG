@@ -1,2 +1,22 @@
-v0.0.1
+v0.0.2:
+	- cleanup leading characters ('-', '+') before converting to rspec
+	- you can include an example in a spec. It won't be converted
+		 <text>
+		  √ is white by default
+  	    ex: puts Foobar.new.colour  # => 'white'
+  	    ex :
+  	      this is a comment too
+  	  * can be resized
+  	    example:
+  	      foobar.resize!(+10, -2)
+     </text>
+
+	 will generate the same rspec code as :
+
+		 <text>
+		  √ is white by default
+  	  * can be resized
+     </text>
+
+v0.0.1:
 	- $ todo_next creates a sample rspec test with an todo_next usage example
