@@ -17,6 +17,7 @@ end
 def TodoNext(source)
   TodoNext::Parser.
       parse(source).
+      prune_examples.
       visit(TodoNext::RspecGeneratorVisitor.new).
       flatten.
       join("\n")

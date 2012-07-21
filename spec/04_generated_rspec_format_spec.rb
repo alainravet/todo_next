@@ -23,4 +23,32 @@ RUBY
 
     TodoNext(source).should == expected
   end
+
+  it 'ignores the example blocks' do
+    source =  'A Foo'                       + "\n" +
+              '  it can be created'         + "\n" +
+              '    ex: '                    + "\n" +
+              '     Foo.create'             + "\n" +
+              '  it can be deleted'
+
+    expected =<<RUBY.chomp
+describe "A Foo" do
+  it("it can be created", :pending => "it can be created"){}
+  it("it can be deleted", :pending => "it can be deleted"){}
+end
+RUBY
+
+    source =  'A Foo'                       + "\n" +
+              '  it can be created'         + "\n" +
+              '    ex: '
+
+    expected =<<RUBY.chomp
+describe "A Foo" do
+  it("it can be created", :pending => "it can be created"){}
+end
+RUBY
+
+    TodoNext(source).should == expected
+  end
+
 end
