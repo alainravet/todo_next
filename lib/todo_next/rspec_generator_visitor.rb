@@ -3,19 +3,19 @@ require File.dirname(__FILE__) + '/tree/depth_first_visitor_base'
 module TodoNext
 
   class RspecGeneratorVisitor < TodoNext::Tree::DepthFirstVisitorBase
-    def visit(curr_node, level) #nodoc#
+    def visit(curr_node, level, parent) #nodoc#
       super
     end
 
-    def process_terminal_node(curr_node, level)
+    def process_terminal_node(curr_node, level, parent)
       tabs  = '  '*(level-1)
       label = label(curr_node)
       code = %Q|#{tabs}it("#{label}", :pending => "#{label}"){}|
     end
 
-    def process_non_terminal_node(curr_node, level)
+    def process_non_terminal_node(curr_node, level, parent)
       tabs = '  '*(level-1)
-      codes = curr_node.children.collect { |node| visit(node, 1+level) }
+      codes = curr_node.children.collect { |node| visit(node, 1+level, parent=self) }
       [%Q|#{tabs}describe "#{label(curr_node)}" do|] + codes + ["#{tabs}end"]
     end
 

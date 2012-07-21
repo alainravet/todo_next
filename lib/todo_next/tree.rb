@@ -11,7 +11,7 @@ module TodoNext
 
     def visit(visitor)
       children.collect do |node|
-        visitor.visit(node, level=1)
+        visitor.visit(node, level=1, parent=self)
       end
     end
   end
