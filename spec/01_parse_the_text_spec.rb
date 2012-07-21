@@ -27,8 +27,8 @@ describe TodoNext::Parser, 'parsing indented text and producing a Tree' do
 
   it 'converts 2 lines under a header as 2 :li under 1 :ol' do
     @source = 'HEADER 1'            + "\n" +
-              '  spec a'            + "\n" +
-              '  spec b'
+              ' spec a'             + "\n" +
+              ' spec b'
 
     result_should_be [  {:type  => :ol , :text  => "HEADER 1",
                          :children  => [
