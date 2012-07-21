@@ -39,6 +39,29 @@ describe TodoNext::Parser, 'parsing indented text and producing a Tree' do
                     ]
   end
 
+#--------------
+# ex: / example:
+#--------------
+  it 'converts an example block to a :ex element' do
+    @source = 'HEADER 1'            + "\n" +
+              '  ex :'              + "\n" +
+              '    blabla'          + "\n" +
+              '  spec b'
+
+    result_should_be [  {:type  => :ol , :text  => "HEADER 1",
+                         :children  => [
+                             {:type  => :ex, :text  => "ex :",
+                              :children  => [{:type  => :li, :text  => "blabla"}]
+                             },
+                             {:type  => :li, :text  => "spec b"}
+                         ]
+                        }
+                    ]
+  end
+
+#--------------
+# ALL-in-one
+#--------------
   it 'converts a complex text into the proper Tree' do
     @source = 'HEADER 1'            + "\n" +
               '  HEADER 2'          + "\n" +

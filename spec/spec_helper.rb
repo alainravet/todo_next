@@ -25,20 +25,25 @@ class TodoNext::Tree
     }
   end
 
-  class OL
-
+  class EX
     def to_hash
-      {   :type => :ol,
-          :text => text,
+      {   :type => :ex, :text => text,
           :children => children.collect{|ch| ch.to_hash }
       }
     end
   end
+
+  class OL
+    def to_hash
+      {   :type => :ol, :text => text,
+          :children => children.collect{|ch| ch.to_hash }
+      }
+    end
+  end
+
   class LI
     def to_hash
-      {   :type => :li,
-          :text => text
-      }
+      {   :type => :li, :text => text}
     end
   end
 end

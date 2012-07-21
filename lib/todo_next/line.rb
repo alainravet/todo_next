@@ -20,6 +20,9 @@ module TodoNext
     def passed?
       text =~ /^\s*√/
     end
+    def example?
+      text =~ /\s*(ex|example)\s*:/
+    end
 
     def leaf?   ; leaf   end
     def branch? ; !leaf? end

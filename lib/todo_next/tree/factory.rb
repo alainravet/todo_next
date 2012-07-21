@@ -16,13 +16,15 @@ module TodoNext
           curr_line_col = line.col_offset
           parent        = parents.get_for_item_at_column(curr_line_col) || tree
 
-          if line.branch?
-            new_node = Tree::OL.new(line.text, parent)
-            parents.register_parent(new_node, :for_col => curr_line_col)
-          else
-            new_node = Tree::LI.new(line.text, parent)
-          end
+          new_node = if     line.example? then Tree::EX.new(line.text, parent)
+                     elsif  line.branch?  then Tree::OL.new(line.text, parent)
+                     else                      Tree::LI.new(line.text, parent)
+                     end
           parent.children << new_node
+
+          if line.branch?
+            parents.register_parent(new_node, :for_col => curr_line_col)
+          end
         end
         tree
       end
