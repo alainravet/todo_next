@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/goal-tdd/version', __FILE__)
+require File.expand_path('../lib/todo_next/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Alain Ravet"]
@@ -11,9 +11,9 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "goal-tdd"
+  gem.name          = "todo_next"
   gem.require_paths = ["lib"]
-  gem.version       = GoalTDD::VERSION
+  gem.version       = TodoNext::VERSION
 
   gem.add_development_dependency  'rake'  # to run 'All specs in Rubymine'
   gem.add_development_dependency  'rspec'
