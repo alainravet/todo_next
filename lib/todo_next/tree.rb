@@ -24,6 +24,9 @@ module TodoNext
       visit(LeafMakerVisitor     .new)
       self
     end
-  end
 
+    def to_rspec
+      visit(TodoNext::RspecGeneratorVisitor.new).flatten.join("\n")
+    end
+  end
 end

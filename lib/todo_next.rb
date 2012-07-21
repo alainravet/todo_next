@@ -15,10 +15,7 @@ def main.todo_next(text, puts_code=true)
 end
 
 def TodoNext(source)
-  TodoNext::Parser.
-      parse(source).
-      prune_examples.
-      visit(TodoNext::RspecGeneratorVisitor.new).
-      flatten.
-      join("\n")
+  tree = TodoNext::Parser.parse(source)
+  tree.prune_examples
+  tree.to_rspec
 end
