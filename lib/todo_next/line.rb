@@ -17,6 +17,9 @@ module TodoNext
     def comment?
       text =~ /^#/
     end
+    def passed?
+      text =~ /^\s*√/
+    end
 
     def leaf?   ; leaf   end
     def branch? ; !leaf? end

@@ -19,7 +19,8 @@ module TodoNext
          Line.new(text.strip, col_offset)
        end.
            reject{|l| l.blank?  }.
-           reject{|l| l.comment?}
+           reject{|l| l.comment?}.
+           reject{|l| l.passed?}
     end
   end
 

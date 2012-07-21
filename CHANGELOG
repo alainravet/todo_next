@@ -1,2 +1,5 @@
-v0.0.1
+next version:
+	- cleanup leading characters ('-', '+')
+
+v0.0.1:
 	- $ todo_next creates a sample rspec test with an todo_next usage example

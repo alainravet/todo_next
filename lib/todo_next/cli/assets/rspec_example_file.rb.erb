@@ -4,13 +4,17 @@ require 'todo_next'
 
 todo_next(<<TEXT)
 A <%= classname %>
-  - is white by default
-  - can be resized
+  √ is white by default
+  * can be resized
+  - can be reset
   truthiness()
-    - is always true
+    is always true
+    is never false
   (add more tests)
 TEXT
 
+# √ == passed   => same as a comment line
+# * == current  => leading char - '*' - is kept
 
 #describe "<what you're testing>" do
 #  specify 'this should happen' do

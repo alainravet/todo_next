@@ -29,13 +29,18 @@ $ cat spec/stack_spec.rb
     require 'todo_next'
 
     todo_next(<<TEXT)
-    A Foobar
-      - is white by default
-      - can be resized
-      truthiness()
-        - is always true
-      (add more tests)
+		A Foobar
+		  √ is white by default
+		  * can be resized
+		  - can be reset
+		  truthiness()
+		    is always true
+		    is never false
+		  (add more tests)
     TEXT
+
+		# √ == passed   => same as a comment line
+		# * == current  => leading char - '*' - is kept
 
 
     #describe "<what you're testing>" do
@@ -46,13 +51,15 @@ $ cat spec/stack_spec.rb
 This text is equivalent to :
 
 ```ruby
-    describe "A Foobar" do
-      it "- is white by default"
-      describe "- can be resized" do
-        it "- is always true"
-      end
-      it "(add more tests)"
-    end
+		describe "A Foobar" do
+		  it '* can be resized'
+		  it 'can be reset'
+		  describe 'truthiness()' do
+		    it 'is always true'
+		    it 'is never false'
+		  end
+		  it '(add more tests)'
+		end
 ```
 
 ![screenshot1](https://github.com/alainravet/todo_next/raw/master/doc/screenshot_1.png)
