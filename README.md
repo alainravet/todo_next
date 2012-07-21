@@ -65,3 +65,5 @@ This text is equivalent to :
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/alainravet/todo_next)
