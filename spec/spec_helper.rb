@@ -49,7 +49,7 @@ class TodoNext::Tree
 end
 
 def parsed_result(source)
-  TodoNext::Parser.parse(source).to_hash[:children]
+  TodoNext::Parser.parse(source, prune_example_nodes=false).to_hash[:children]
 end
 
 def result_should_be(expected)

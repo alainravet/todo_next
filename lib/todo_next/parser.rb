@@ -5,9 +5,14 @@ require File.dirname(__FILE__) + '/cli'
 module TodoNext
   class Parser
 
-    def self.parse(text)
+    def self.parse(text, prune_example_nodes=true)
       lines = extract_meaningful_lines(text)
       tree  = Tree::Factory.build(lines)
+      if prune_example_nodes
+        tree.visit(TodoNext::Tree::Visitor::ExampleNodesRemover.new)
+        tree.visit(TodoNext::Tree::Visitor::LeafMaker          .new)
+      end
+      tree
     end
 
     def self.extract_meaningful_lines(text)

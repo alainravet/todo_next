@@ -16,6 +16,5 @@ end
 
 def TodoNext(source)
   tree = TodoNext::Parser.parse(source)
-  tree.prune_example_nodes!
   tree.to_rspec
 end

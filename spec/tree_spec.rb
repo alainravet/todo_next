@@ -8,13 +8,14 @@ describe TodoNext::Tree do
       source = 'spec 1'                 + "\n" +
                'example : ignore me'    + "\n" +
                'spec 2'
-      tree = TodoNext::Parser.parse(source)
+      tree = TodoNext::Parser.parse(source, prune_example_nodes=false)
       tree.to_hash[:children].should ==
                 [  {:type  => :li, :text  => 'spec 1'             },
                    {:type  => :ex, :text  => 'example : ignore me', :children => []},
                    {:type  => :li, :text  => 'spec 2'             }
                 ]
-      tree.prune_example_nodes!.to_hash[:children].should ==
+      tree = TodoNext::Parser.parse(source)
+      tree.to_hash[:children].should ==
                 [  {:type  => :li, :text  => 'spec 1', },
                    {:type  => :li, :text  => 'spec 2'}
                 ]
@@ -30,7 +31,7 @@ describe TodoNext::Tree do
                 '  spec b'
 
       tree = TodoNext::Parser.parse(source)
-      tree.prune_example_nodes!.to_hash[:children].should ==
+      tree.to_hash[:children].should ==
                 [  {:type     => :ol , :text  => "HEADER 1",
                     :children => [{:type => :li, :text => "spec b"}]
                    }
@@ -43,7 +44,7 @@ describe TodoNext::Tree do
                 '    blabla'
 
       tree = TodoNext::Parser.parse(source)
-      tree.prune_example_nodes!.to_hash[:children].should ==
+      tree.to_hash[:children].should ==
                 [  {:type     => :li , :text  => "spec 1"}
                 ]
     end

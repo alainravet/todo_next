@@ -20,12 +20,6 @@ module TodoNext
       result
     end
 
-    def prune_example_nodes!
-      visit(TodoNext::Tree::Visitor::ExampleNodesRemover.new)
-      visit(TodoNext::Tree::Visitor::LeafMaker          .new)
-      self
-    end
-
     def to_rspec
       visit(TodoNext::Tree::Visitor::RspecGenerator.new).flatten.join("\n")
     end
